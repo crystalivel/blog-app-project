@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "title": "the very first Post",
+    "content": "hello there friends",
+    "createdAtDate": "2025-08-16T18:59:00.931Z",
+    "updatedAtDate": "2025-08-16T18:59:00.933Z"
+  },
+  {
+    "id": 2,
+    "title": "has been updated",
+    "content": "there is no mistake here",
+    "createdAtDate": "2025-08-16T18:59:30.553Z",
+    "updatedAtDate": "2025-08-16T19:04:06.575Z"
+  }
+]
