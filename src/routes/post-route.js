@@ -1,21 +1,40 @@
 const express = require('express')
 const router = express.Router();
-const { readData, writeData } = require('../utils/file-handler')
+const { readData, writeData } = require('../utils/file-store')
+const jwt = require("jsonwebtoken");
 
+
+const JWT_SECRET = process.env.JWT_SECRET;
+
+//middleware for tokken 
+
+function authMiddleware(req, res, next) {
+    const authHeader = req.headers["authorization"];
+    if (!authHeader) return res.status(401).json({ message: "No token provided" });
+
+    const token = authHeader.split(" ")[1];
+    if (!token) return res.status(401).json({ message: "Token malformed" });
+
+    jwt.verify(token, JWT_SECRET, (err, user) => {
+        if (err) return res.status(403).json({ message: "Invalid token" });
+        req.user = user;
+        next();
+    });
+}
 //show all blogs 
-router.get("/", (req, res) => {
+router.get("/", authMiddleware, (req, res) => {
     const blogs = readData();
     res.json(blogs)
 })
 // show a blog
-router.get('/:id', (req, res) => {
+router.get('/:id', authMiddleware, (req, res) => {
     const blogs = readData()
     const blog = blogs.find(b => b.id === parseInt(req.params.id))
     if (!blog) return res.status(404).send(`no post was found`)
     res.send(blog)
 })
 //create a blog
-router.post("/", (req, res) => {
+router.post("/", authMiddleware, (req, res) => {
     const blogs = readData()
     const newBlog = {
         id: blogs.length + 1,
@@ -30,7 +49,7 @@ router.post("/", (req, res) => {
     res.status(201).json(newBlog)
 })
 // update a blog
-router.put("/:id", (req, res) => {
+router.put("/:id", authMiddleware, (req, res) => {
     const blogs = readData()
     const index = blogs.findIndex(b => b.id === parseInt(req.params.id))
     if (index === -1) return res.status(404).send(`blog not found`)
@@ -43,12 +62,12 @@ router.put("/:id", (req, res) => {
     res.json(blogs[index])
 })
 // delete blog
-router.delete("/:id",(req,res) => {
-    const blogs = readData(); 
+router.delete("/:id", authMiddleware, (req, res) => {
+    const blogs = readData();
     const blog = blogs.filter(b => b.id !== parseInt(req.params.id))
     if (blog.length === blogs.length) return res.status(404).send(`post not found`)
-        writeData(blog)
-    res.send({message:'post deleted '})
+    writeData(blog)
+    res.send({ message: 'post deleted ' })
 })
 
 module.exports = router; 

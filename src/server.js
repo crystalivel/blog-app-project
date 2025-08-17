@@ -1,12 +1,15 @@
 const express = require('express')
 const app = express()
 const postRoute = require("./routes/post-route")
+require('dotenv').config() 
+const authRouter = require("./routes/auth-users") 
 
 const port = 1000;
 
 
 //middleware
 app.use(express.json())
+app.use("/auth", authRouter);
 
 //routes
 app.use("/blogs",postRoute)
