@@ -3,5 +3,10 @@
     "id": 1,
     "userName": "ali",
     "password": "$2b$10$j7JDIJ1xCChUwXYKB99lqe5e6MJ543qSHSED43fHsRyLPxqXtl/OG"
+  },
+  {
+    "id": 2,
+    "userName": "admin",
+    "password": "$2b$10$IUESJh4WBkLEyk84nEY6WODGHu9Oi2SHumxCyEAq/PLbM8mUd8rom"
   }
 ]

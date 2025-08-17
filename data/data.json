@@ -19,5 +19,12 @@
     "content": "Only logged in users can post this",
     "createdAtDate": "2025-08-17T17:23:36.134Z",
     "updatedAtDate": "2025-08-17T17:23:36.136Z"
+  },
+  {
+    "id": 4,
+    "title": "Secured Post",
+    "content": "Only logged in users can post this",
+    "createdAtDate": "2025-08-17T19:21:46.350Z",
+    "updatedAtDate": "2025-08-17T19:21:46.350Z"
   }
 ]
