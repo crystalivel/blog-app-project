@@ -12,5 +12,12 @@
     "content": "there is no mistake here",
     "createdAtDate": "2025-08-16T18:59:30.553Z",
     "updatedAtDate": "2025-08-16T19:04:06.575Z"
+  },
+  {
+    "id": 3,
+    "title": "Secured Post",
+    "content": "Only logged in users can post this",
+    "createdAtDate": "2025-08-17T17:23:36.134Z",
+    "updatedAtDate": "2025-08-17T17:23:36.136Z"
   }
 ]
