@@ -28,18 +28,18 @@ Delete a blog post.
 
 User and blog data are stored in JSON files (users.json and data.json).
 
-No database required — perfect for learning and small projects.
+No database required perfect for learning and small projects.
 
 ### Technologies Used
 
-Node.js – runtime environment
+`Node`.js => runtime environment
 
-Express – web framework
+`Express` => web framework
 
-bcryptjs – password hashing
+`bcryptjs` => password hashing
 
-jsonwebtoken (JWT) – token-based authentication
+`jsonwebtoken` (JWT) => token-based authentication
 
-fs – file system for JSON storage
+`fs` => file system for JSON storage
 
-CORS – Cross-Origin Resource Sharing support
+`CORS` => Cross-Origin Resource Sharing support
